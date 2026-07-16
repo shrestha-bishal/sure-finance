@@ -179,8 +179,8 @@ class AccountStatement::Coverage
 
     def overlapping_statements?(statements)
       statements.combination(2).any? do |a, b|
-        a.period_start_on <= b.period_end_on &&
-          b.period_start_on <= a.period_end_on
+        a.period_start_on < b.period_end_on &&
+          b.period_start_on < a.period_end_on
       end
     end
 
